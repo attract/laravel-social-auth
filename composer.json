@@ -2,6 +2,7 @@
     "name": "attractgroup/social-auther",
     "description": "Auth in social",
     "type": "library",
+    "version": "1.0.1",
     "authors": [
         {
             "name": "Alex Kim",
