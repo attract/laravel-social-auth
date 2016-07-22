@@ -1,0 +1,24 @@
+{
+    "name": "attractgroup/social-auther",
+    "description": "Auth in social",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Alex Kim",
+            "email": "alex.kim@attractgroup.com"
+        }
+    ],
+    "require": {
+        "laravel/framework": ">=4.2.1"
+    },
+    "autoload": {
+        "classmap": [
+            "src/Adapter",
+            "src/Exception",
+            "src"
+        ],
+        "psr-4": {
+            "AttractGroup\\SocialAuther\\": "src/"
+        }
+    }
+}
