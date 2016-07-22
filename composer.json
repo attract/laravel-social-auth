@@ -1,5 +1,5 @@
 {
-    "name": "attractgroup/social-auth",
+    "name": "attractgroup/laravel-social-auth",
     "description": "Auth in social",
     "type": "library",
     "version": "1.0.4",
