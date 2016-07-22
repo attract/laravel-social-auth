@@ -1,18 +1,12 @@
 {
-    "name": "attractgroup/social-auther",
+    "name": "attractgroup/social-auth",
     "description": "Auth in social",
     "type": "library",
-    "license": "MIT",
+    "version": "1.0.4",
     "authors": [
         {
             "name": "Alex Kim",
             "email": "alex.kim@attractgroup.com"
-        }
-    ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/attract/social-auther"
         }
     ],
     "require": {
