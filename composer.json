@@ -10,6 +10,12 @@
             "email": "alex.kim@attractgroup.com"
         }
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/attract/social-auther"
+        }
+    ],
     "require": {
         "laravel/framework": ">=4.2.1"
     },
