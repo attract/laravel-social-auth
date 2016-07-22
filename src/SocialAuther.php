@@ -6,9 +6,9 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
-namespace SocialAuther;
+namespace AttractGroup\SocialAuther;
 
-use SocialAuther\Adapter\AdapterInterface;
+use AttractGroup\SocialAuther\Adapter\AdapterInterface;
 
 class SocialAuther
 {

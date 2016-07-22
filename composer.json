@@ -12,6 +12,11 @@
         "laravel/framework": ">=4.2.1"
     },
     "autoload": {
+        "classmap": [
+            "src/Adapter",
+            "src/Exception",
+            "src"
+        ],
         "psr-4": {
             "AttractGroup\\SocialAuther\\": "src/"
         }

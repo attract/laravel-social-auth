@@ -6,7 +6,7 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
-namespace SocialAuther\Adapter;
+namespace AttractGroup\SocialAuther\Adapter;
 
 abstract class AbstractAdapter implements AdapterInterface
 {

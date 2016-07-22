@@ -1,6 +1,6 @@
 <?php
 
-namespace SocialAuther\Adapter;
+namespace AttractGroup\SocialAuther\Adapter;
 
 class Mailru extends AbstractAdapter
 {

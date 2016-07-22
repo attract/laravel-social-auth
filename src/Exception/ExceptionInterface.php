@@ -6,7 +6,7 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
-namespace SocialAuther\Exception;
+namespace AttractGroup\SocialAuther\Exception;
 
 interface ExceptionInterface
 {}
