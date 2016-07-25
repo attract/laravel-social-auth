@@ -8,6 +8,8 @@
 
 namespace AttractGroup\SocialAuther\Adapter;
 
+use AttractGroup\SocialAuther\Exception\InvalidArgumentException;
+
 abstract class AbstractAdapter implements AdapterInterface
 {
     /**
@@ -61,13 +63,13 @@ abstract class AbstractAdapter implements AdapterInterface
     public function __construct($config)
     {
         if (!is_array($config))
-            throw new Exception\InvalidArgumentException(
+            throw new InvalidArgumentException(
                 __METHOD__ . ' expects an array with keys: `client_id`, `client_secret`, `redirect_uri`'
             );
 
         foreach (array('client_id', 'client_secret', 'redirect_uri') as $param) {
             if (!array_key_exists($param, $config)) {
-                throw new Exception\InvalidArgumentException(
+                throw new InvalidArgumentException(
                     __METHOD__ . ' expects an array with key: `' . $param . '`'
                 );
             } else {

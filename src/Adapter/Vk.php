@@ -90,13 +90,16 @@ class Vk extends AbstractAdapter
             if (isset($tokenInfo['access_token'])) {
                 $params = array(
                     'uids'         => $tokenInfo['user_id'],
-                    'fields'       => 'uid,first_name,last_name,screen_name,sex,bdate,photo_big',
+                    'fields'       => 'uid,email,first_name,last_name,screen_name,sex,bdate,photo_big',
                     'access_token' => $tokenInfo['access_token']
                 );
 
                 $userInfo = $this->get('https://api.vk.com/method/users.get', $params);
                 if (isset($userInfo['response'][0]['uid'])) {
                     $this->userInfo = $userInfo['response'][0];
+                    if (isset($tokenInfo['email'])) {
+                        $this->userInfo['email'] = $tokenInfo['email'];
+                    }
                     $result = true;
                 }
             }
@@ -116,7 +119,7 @@ class Vk extends AbstractAdapter
             'auth_url'    => 'http://oauth.vk.com/authorize',
             'auth_params' => array(
                 'client_id'     => $this->clientId,
-                'scope'         => 'notify',
+                'scope'         => 'email',
                 'redirect_uri'  => $this->redirectUri,
                 'response_type' => 'code'
             )

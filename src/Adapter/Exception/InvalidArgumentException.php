@@ -6,7 +6,7 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  */
 
-namespace SocialAuther\Adapter\Exception;
+namespace AttractGroup\SocialAuther\Exception;
 
 class InvalidArgumentException
     extends \InvalidArgumentException

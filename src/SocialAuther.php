@@ -9,6 +9,7 @@
 namespace AttractGroup\SocialAuther;
 
 use AttractGroup\SocialAuther\Adapter\AdapterInterface;
+use Illuminate\Support\Facades\Config;
 
 class SocialAuther
 {
@@ -17,7 +18,10 @@ class SocialAuther
      *
      * @var AdapterInterface
      */
+
     protected  $adapter = null;
+
+    protected  $urls = null;
 
     /**
      * Constructor.
@@ -25,16 +29,23 @@ class SocialAuther
      * @param AdapterInterface $adapter
      * @throws Exception\InvalidArgumentException
      */
-    public function __construct($adapter)
+    public function __construct($adapters, $redirect_uri)
     {
-        if ($adapter instanceof AdapterInterface) {
-            $this->adapter = $adapter;
-        } else {
-            throw new Exception\InvalidArgumentException(
-                'SocialAuther only expects instance of the type' .
-                'SocialAuther\Adapter\AdapterInterface.'
-            );
+        $urls = '';
+        $config = Config::get('social-auther::config.providers');
+        foreach($adapters as $row) {
+            $config[$row]['redirect_uri'] = $redirect_uri . '?adapter=' . $row;
+            $class = 'AttractGroup\SocialAuther\Adapter\\' . ucfirst($row);
+            $this->adapter_instance[$row] = new $class($config[$row]);
+            $urls[$row] = $this->adapter_instance[$row]->getAuthUrl();
         }
+
+        if (isset($_GET['adapter'])) {
+            $name = $_GET['adapter'];
+            $this->adapter = $this->adapter_instance[$name];
+        }
+
+        $this->urls = $urls;
     }
 
     /**
@@ -44,8 +55,20 @@ class SocialAuther
      */
     public function authenticate()
     {
-        return $this->adapter->authenticate();
+        return $this->adapter != null ? $this->adapter->authenticate() :false;
     }
+
+
+    /**
+     * Return urls auth
+     *
+     * @return null|string
+     */
+    public function getAuthUrls()
+    {
+        return $this->urls;
+    }
+
 
     /**
      * Call method of this class or methods of adapter class
