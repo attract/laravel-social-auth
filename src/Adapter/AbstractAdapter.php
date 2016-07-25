@@ -58,7 +58,7 @@ abstract class AbstractAdapter implements AdapterInterface
      * Constructor
      *
      * @param array $config
-     * @throws Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function __construct($config)
     {

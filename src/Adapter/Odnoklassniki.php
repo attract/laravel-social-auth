@@ -1,6 +1,6 @@
-<?php
+<?php namespace AttractGroup\SocialAuther\Adapter;
 
-namespace AttractGroup\SocialAuther\Adapter;
+use AttractGroup\SocialAuther\Exception\InvalidArgumentException;
 
 class Odnoklassniki extends AbstractAdapter
 {
@@ -15,18 +15,18 @@ class Odnoklassniki extends AbstractAdapter
      * Constructor.
      *
      * @param array $config
-     * @throws Exception\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function __construct($config)
     {
         if (!is_array($config))
-            throw new Exception\InvalidArgumentException(
+            throw new InvalidArgumentException(
                 __METHOD__ . ' expects an array with keys: `client_id`, `client_secret`, `redirect_uri`, `public_key`'
             );
 
         foreach (array('client_id', 'client_secret', 'redirect_uri', 'public_key') as $param) {
             if (!array_key_exists($param, $config)) {
-                throw new Exception\InvalidArgumentException(
+                throw new InvalidArgumentException(
                     __METHOD__ . ' expects an array with key: `' . $param . '`'
                 );
             } else {
